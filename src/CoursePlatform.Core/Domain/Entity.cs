@@ -13,47 +13,23 @@ public abstract class Entity : INotifiable
         Id = Guid.NewGuid();
     }
 
-    public override bool Equals(object? obj)
-    {
-        return obj is Entity entity
-            &&
-            ReferenceEquals(this, entity)
-            &&
-            Id.Equals(entity.Id);
-    }
+    public override bool Equals(object? obj) => obj is Entity entity
+        &&
+        ReferenceEquals(this, entity)
+        &&
+        Id.Equals(entity.Id);
 
-    public override int GetHashCode()
-    {
-        return HashCode.Combine(Id);
-    }
+    public override int GetHashCode() => HashCode.Combine(Id);
 
-    public override string ToString()
-    {
-        return $"{GetType().Name} [Id={Id}]";
-    }
+    public override string ToString() => $"{GetType().Name} [Id={Id}]";
 
-    public IReadOnlyCollection<Event> GetEvents()
-    {
-        return _events;
-    }
+    public IReadOnlyCollection<Event> GetEvents() => _events.AsReadOnly();
 
-    public bool HasEvents()
-    {
-        return _events.Any();
-    }
+    public bool HasEvents() => _events.Count > 0;
 
-    public void AddEvent(Event @event)
-    {
-        _events.Add(@event);
-    }
+    public void AddEvent(Event @event) => _events.Add(@event);
 
-    public void RemoveEvent(Event @event)
-    {
-        _events.Remove(@event);
-    }
+    public void RemoveEvent(Event @event) => _events.Remove(@event);
 
-    public void ClearEvents()
-    {
-        _events.Clear();
-    }
+    public void ClearEvents() => _events.Clear();
 }
