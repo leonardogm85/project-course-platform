@@ -6,7 +6,7 @@ public class UserRole : Entity
 {
     public Guid UserId { get; }
     public Guid RoleId { get; }
-    public DateTime CreatedAt { get; }
+    public DateTimeOffset CreatedAt { get; }
     public Guid CreatedBy { get; }
 
     public User? User { get; }
@@ -23,6 +23,6 @@ public class UserRole : Entity
 
         CreatedBy = createdBy;
 
-        CreatedAt = DateTime.UtcNow;
+        CreatedAt = DateTimeOffset.UtcNow;
     }
 }

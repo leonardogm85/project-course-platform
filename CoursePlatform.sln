@@ -7,9 +7,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Apps", "Apps", "{79259F9C-E
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{A9C751B8-DA8E-4D8D-A752-3144AAE286F2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoursePlatform.Api", "src\CoursePlatform.Api\CoursePlatform.Api.csproj", "{6E39447D-1D60-4536-93A5-7F6B89693B4A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoursePlatform.Api", "src\CoursePlatform.Api\CoursePlatform.Api.csproj", "{6E39447D-1D60-4536-93A5-7F6B89693B4A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoursePlatform.Api.Tests", "tests\CoursePlatform.Api.Tests\CoursePlatform.Api.Tests.csproj", "{6B348EF3-6D99-4692-A232-E8CA5CE3ADCD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoursePlatform.Api.Tests", "tests\CoursePlatform.Api.Tests\CoursePlatform.Api.Tests.csproj", "{6B348EF3-6D99-4692-A232-E8CA5CE3ADCD}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{4A7CC167-CD0A-451A-82FC-DAC337A3BE72}"
 EndProject
@@ -17,41 +17,41 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{6E2F4BF7-A
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{40392968-8883-492C-A180-1642DBE4BE1A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoursePlatform.Core", "src\CoursePlatform.Core\CoursePlatform.Core.csproj", "{FD358392-E5CB-4D80-A2FE-AF8805DC780D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoursePlatform.Core", "src\CoursePlatform.Core\CoursePlatform.Core.csproj", "{FD358392-E5CB-4D80-A2FE-AF8805DC780D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoursePlatform.Core.Tests", "tests\CoursePlatform.Core.Tests\CoursePlatform.Core.Tests.csproj", "{41CAEA65-FDEE-4AC0-8C11-F34FC6674D76}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoursePlatform.Core.Tests", "tests\CoursePlatform.Core.Tests\CoursePlatform.Core.Tests.csproj", "{41CAEA65-FDEE-4AC0-8C11-F34FC6674D76}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Identity", "Identity", "{D9AB070B-2728-4635-BCA6-D776E00CB3A2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{4B0D2DC8-F99F-4DA6-A17C-3401327ABB09}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoursePlatform.Identity.Domain", "src\CoursePlatform.Identity.Domain\CoursePlatform.Identity.Domain.csproj", "{EA0CBA99-5390-426C-BE0E-570E965758FD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoursePlatform.Identity.Domain", "src\CoursePlatform.Identity.Domain\CoursePlatform.Identity.Domain.csproj", "{EA0CBA99-5390-426C-BE0E-570E965758FD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoursePlatform.Identity.Data", "src\CoursePlatform.Identity.Data\CoursePlatform.Identity.Data.csproj", "{35B040B3-B100-42B7-92DD-CF7C9D854C28}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoursePlatform.Identity.Data", "src\CoursePlatform.Identity.Data\CoursePlatform.Identity.Data.csproj", "{35B040B3-B100-42B7-92DD-CF7C9D854C28}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoursePlatform.Identity.Application", "src\CoursePlatform.Identity.Application\CoursePlatform.Identity.Application.csproj", "{9C932DAB-45D7-4642-8C4C-C6717D11FD58}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoursePlatform.Identity.Application", "src\CoursePlatform.Identity.Application\CoursePlatform.Identity.Application.csproj", "{9C932DAB-45D7-4642-8C4C-C6717D11FD58}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoursePlatform.Identity.Domain.Tests", "tests\CoursePlatform.Identity.Domain.Tests\CoursePlatform.Identity.Domain.Tests.csproj", "{499F610C-8AA8-4BBF-BE5B-1C123B8C4CCB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoursePlatform.Identity.Domain.Tests", "tests\CoursePlatform.Identity.Domain.Tests\CoursePlatform.Identity.Domain.Tests.csproj", "{499F610C-8AA8-4BBF-BE5B-1C123B8C4CCB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoursePlatform.Identity.Data.Tests", "tests\CoursePlatform.Identity.Data.Tests\CoursePlatform.Identity.Data.Tests.csproj", "{3576789E-8350-4189-889B-FF9DB0F13773}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoursePlatform.Identity.Data.Tests", "tests\CoursePlatform.Identity.Data.Tests\CoursePlatform.Identity.Data.Tests.csproj", "{3576789E-8350-4189-889B-FF9DB0F13773}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoursePlatform.Identity.Application.Tests", "tests\CoursePlatform.Identity.Application.Tests\CoursePlatform.Identity.Application.Tests.csproj", "{D698B7C0-30FA-441A-8D34-80B469285678}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoursePlatform.Identity.Application.Tests", "tests\CoursePlatform.Identity.Application.Tests\CoursePlatform.Identity.Application.Tests.csproj", "{D698B7C0-30FA-441A-8D34-80B469285678}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Catalog", "Catalog", "{2DA214E8-1C79-488B-81CC-986A9FCE4635}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{45B6FB56-EBC2-475E-971D-F6E4E7BFEE0E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoursePlatform.Catalog.Domain", "src\CoursePlatform.Catalog.Domain\CoursePlatform.Catalog.Domain.csproj", "{976F34AC-0620-4130-8C41-6D29FE6725F0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoursePlatform.Catalog.Domain", "src\CoursePlatform.Catalog.Domain\CoursePlatform.Catalog.Domain.csproj", "{976F34AC-0620-4130-8C41-6D29FE6725F0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoursePlatform.Catalog.Data", "src\CoursePlatform.Catalog.Data\CoursePlatform.Catalog.Data.csproj", "{B8A3319F-6ECA-4233-BC34-FE6ACEBA70A0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoursePlatform.Catalog.Data", "src\CoursePlatform.Catalog.Data\CoursePlatform.Catalog.Data.csproj", "{B8A3319F-6ECA-4233-BC34-FE6ACEBA70A0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoursePlatform.Catalog.Application", "src\CoursePlatform.Catalog.Application\CoursePlatform.Catalog.Application.csproj", "{D8826305-5D99-4B15-80AF-76D463944D5F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoursePlatform.Catalog.Application", "src\CoursePlatform.Catalog.Application\CoursePlatform.Catalog.Application.csproj", "{D8826305-5D99-4B15-80AF-76D463944D5F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoursePlatform.Catalog.Domain.Tests", "tests\CoursePlatform.Catalog.Domain.Tests\CoursePlatform.Catalog.Domain.Tests.csproj", "{6FB3AC33-4F08-4A07-BD3B-63CDCBBA9962}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoursePlatform.Catalog.Domain.Tests", "tests\CoursePlatform.Catalog.Domain.Tests\CoursePlatform.Catalog.Domain.Tests.csproj", "{6FB3AC33-4F08-4A07-BD3B-63CDCBBA9962}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoursePlatform.Catalog.Data.Tests", "tests\CoursePlatform.Catalog.Data.Tests\CoursePlatform.Catalog.Data.Tests.csproj", "{AE735BD9-A3BF-4F4A-816E-C9C1DAD3AC8F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoursePlatform.Catalog.Data.Tests", "tests\CoursePlatform.Catalog.Data.Tests\CoursePlatform.Catalog.Data.Tests.csproj", "{AE735BD9-A3BF-4F4A-816E-C9C1DAD3AC8F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoursePlatform.Catalog.Application.Tests", "tests\CoursePlatform.Catalog.Application.Tests\CoursePlatform.Catalog.Application.Tests.csproj", "{27DD5A77-D127-4A44-9878-69BE3A72E57A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoursePlatform.Catalog.Application.Tests", "tests\CoursePlatform.Catalog.Application.Tests\CoursePlatform.Catalog.Application.Tests.csproj", "{27DD5A77-D127-4A44-9878-69BE3A72E57A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -4,10 +4,10 @@ namespace CoursePlatform.Core.Messages;
 
 public abstract class Event : Message, INotification
 {
-    public DateTime Timestamp { get; }
+    public DateTimeOffset Timestamp { get; }
 
     protected Event(Guid aggregateId) : base(aggregateId)
     {
-        Timestamp = DateTime.UtcNow;
+        Timestamp = DateTimeOffset.UtcNow;
     }
 }

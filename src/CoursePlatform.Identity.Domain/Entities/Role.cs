@@ -8,9 +8,8 @@ public class Role : Entity, IAggregateRoot
     private readonly List<RoleClaim> _claims = [];
 
     public string Name { get; private set; } = null!;
-    public string Description { get; private set; } = null!;
-    public DateTime UpdatedAt { get; private set; }
-    public DateTime CreatedAt { get; private set; }
+    public DateTimeOffset UpdatedAt { get; private set; }
+    public DateTimeOffset CreatedAt { get; private set; }
     public Guid UpdatedBy { get; private set; }
     public Guid CreatedBy { get; private set; }
     public bool Active { get; private set; }
@@ -23,16 +22,15 @@ public class Role : Entity, IAggregateRoot
     {
     }
 
-    public Role(string name, string description, Guid createdBy)
+    public Role(string name, Guid createdBy)
     {
         Name = name;
-        Description = description;
 
         CreatedBy = createdBy;
         UpdatedBy = createdBy;
 
-        UpdatedAt = DateTime.UtcNow;
-        CreatedAt = DateTime.UtcNow;
+        UpdatedAt = DateTimeOffset.UtcNow;
+        CreatedAt = DateTimeOffset.UtcNow;
 
         Active = true;
 
@@ -40,9 +38,8 @@ public class Role : Entity, IAggregateRoot
     }
 
     public void SetName(string name) => Name = name;
-    public void SetDescription(string description) => Description = description;
 
-    public void EntityUpdatedAt() => UpdatedAt = DateTime.UtcNow;
+    public void EntityUpdatedAt() => UpdatedAt = DateTimeOffset.UtcNow;
     public void EntityUpdatedBy(Guid user) => UpdatedBy = user;
 
     public void Activate() => Active = true;

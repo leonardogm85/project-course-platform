@@ -1,4 +1,6 @@
-﻿using CoursePlatform.Core.Domain;
+﻿using System.Security.Claims;
+
+using CoursePlatform.Core.Domain;
 
 namespace CoursePlatform.Identity.Domain.Entities;
 
@@ -7,7 +9,7 @@ public class UserClaim : Entity
     public Guid UserId { get; }
     public string ClaimType { get; } = null!;
     public string ClaimValue { get; } = null!;
-    public DateTime CreatedAt { get; }
+    public DateTimeOffset CreatedAt { get; }
     public Guid CreatedBy { get; }
 
     public User? User { get; }
@@ -24,6 +26,8 @@ public class UserClaim : Entity
 
         CreatedBy = createdBy;
 
-        CreatedAt = DateTime.UtcNow;
+        CreatedAt = DateTimeOffset.UtcNow;
     }
+
+    public Claim ToClaim() => new(ClaimType, ClaimValue);
 }

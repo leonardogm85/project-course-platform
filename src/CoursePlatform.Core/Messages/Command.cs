@@ -6,11 +6,11 @@ namespace CoursePlatform.Core.Messages;
 
 public abstract class Command : Message, IRequest<bool>
 {
-    public DateTime Timestamp { get; }
+    public DateTimeOffset Timestamp { get; }
 
     protected Command(Guid aggregateId) : base(aggregateId)
     {
-        Timestamp = DateTime.UtcNow;
+        Timestamp = DateTimeOffset.UtcNow;
     }
 
     public abstract ValidationResult GetValidationResult();
