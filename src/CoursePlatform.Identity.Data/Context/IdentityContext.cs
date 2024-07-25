@@ -4,6 +4,7 @@ using CoursePlatform.Identity.Data.Converters;
 using CoursePlatform.Identity.Data.Extensions;
 using CoursePlatform.Identity.Data.Mappings;
 using CoursePlatform.Identity.Domain.Entities;
+using CoursePlatform.Identity.Domain.ValueTypes;
 
 using Microsoft.EntityFrameworkCore;
 
@@ -21,6 +22,9 @@ public class IdentityContext : DbContext, IUnitOfWork
     public DbSet<UserLogin> UserLogins { get; } = null!;
     public DbSet<UserRole> UserRoles { get; } = null!;
     public DbSet<UserToken> UserTokens { get; } = null!;
+    public DbSet<Menu> Menus { get; } = null!;
+    public DbSet<MenuItem> MenuItems { get; } = null!;
+    public DbSet<ItemAccess> ItemAccesses { get; } = null!;
 
     public IdentityContext(DbContextOptions<IdentityContext> options, PersonalDataConverter personalDataConverter, IMediatorHandler mediatorHandler) : base(options)
     {
@@ -37,6 +41,9 @@ public class IdentityContext : DbContext, IUnitOfWork
         modelBuilder.ApplyConfiguration(new UserTokenMapping());
         modelBuilder.ApplyConfiguration(new RoleMapping());
         modelBuilder.ApplyConfiguration(new RoleClaimMapping());
+        modelBuilder.ApplyConfiguration(new MenuMapping());
+        modelBuilder.ApplyConfiguration(new MenuItemMapping());
+        modelBuilder.ApplyConfiguration(new ItemAccessMapping());
 
         base.OnModelCreating(modelBuilder);
     }

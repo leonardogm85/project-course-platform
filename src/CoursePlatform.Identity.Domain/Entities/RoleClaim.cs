@@ -1,14 +1,15 @@
 ﻿using System.Security.Claims;
 
 using CoursePlatform.Core.Domain;
+using CoursePlatform.Identity.Domain.ValueTypes;
 
 namespace CoursePlatform.Identity.Domain.Entities;
 
 public class RoleClaim : Entity
 {
     public Guid RoleId { get; }
-    public string ClaimType { get; } = null!;
-    public string ClaimValue { get; } = null!;
+    public MenuItem ClaimType { get; } = null!;
+    public ItemAccess ClaimValue { get; } = null!;
     public DateTimeOffset CreatedAt { get; }
     public Guid CreatedBy { get; }
 
@@ -18,7 +19,7 @@ public class RoleClaim : Entity
     {
     }
 
-    public RoleClaim(Guid roleId, string claimType, string claimValue, Guid createdBy)
+    public RoleClaim(Guid roleId, MenuItem claimType, ItemAccess claimValue, Guid createdBy)
     {
         RoleId = roleId;
         ClaimType = claimType;
@@ -29,5 +30,5 @@ public class RoleClaim : Entity
         CreatedAt = DateTimeOffset.UtcNow;
     }
 
-    public Claim ToClaim() => new(ClaimType, ClaimValue);
+    public Claim ToClaim() => new(ClaimType.Id.ToString(), ClaimValue.Id.ToString());
 }
