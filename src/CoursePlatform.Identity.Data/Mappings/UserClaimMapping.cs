@@ -1,4 +1,5 @@
 ﻿using CoursePlatform.Identity.Data.Context;
+using CoursePlatform.Identity.Data.Converters;
 using CoursePlatform.Identity.Domain.Entities;
 
 using Microsoft.EntityFrameworkCore;
@@ -18,13 +19,17 @@ public class UserClaimMapping : IEntityTypeConfiguration<UserClaim>
             .IsRequired();
 
         builder.Property(claim => claim.ClaimType)
-            .HasMaxLength(250)
-            .IsUnicode()
+            .HasConversion<MenuItemConverter>();
+
+        builder.HasOne(claim => claim.ClaimType)
+            .WithMany()
             .IsRequired();
 
         builder.Property(claim => claim.ClaimValue)
-            .HasMaxLength(250)
-            .IsUnicode()
+            .HasConversion<ItemAccessConverter>();
+
+        builder.HasOne(claim => claim.ClaimValue)
+            .WithMany()
             .IsRequired();
 
         builder.Property(claim => claim.CreatedAt)
