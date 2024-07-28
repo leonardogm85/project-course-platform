@@ -4,26 +4,26 @@ using CoursePlatform.Identity.Domain.Extensions;
 
 namespace CoursePlatform.Identity.Domain.ValueTypes;
 
-public class ItemAccess : IValueType
+public class Access : IValueType
 {
     public int Id { get; }
     public string Name { get; } = null!;
 
-    protected ItemAccess()
+    protected Access()
     {
     }
 
-    public ItemAccess(Enums.ItemAccess itemAccess)
+    public Access(Enums.Access access)
     {
-        Id = itemAccess
+        Id = access
             .GetValue();
 
-        Name = itemAccess
+        Name = access
             .GetAttribute<NameAttribute>()
             .Name;
     }
 
-    public static implicit operator ItemAccess(Enums.ItemAccess itemAccess) => new(itemAccess);
+    public static implicit operator Access(Enums.Access access) => new(access);
 
-    public static implicit operator Enums.ItemAccess(ItemAccess itemAccess) => (Enums.ItemAccess)itemAccess.Id;
+    public static implicit operator Enums.Access(Access access) => (Enums.Access)access.Id;
 }

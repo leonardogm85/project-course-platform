@@ -2,7 +2,7 @@
 
 namespace CoursePlatform.Identity.Domain.Enums;
 
-public enum ItemAccess
+public enum Access
 {
     [Name("Create")]
     Create = 1,

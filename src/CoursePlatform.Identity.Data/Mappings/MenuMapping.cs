@@ -21,8 +21,8 @@ public class MenuMapping : IEntityTypeConfiguration<Menu>
         builder.Property(menu => menu.Order)
             .IsRequired();
 
-        builder.HasMany(menu => menu.MenuItems)
-            .WithOne(menuItem => menuItem.Menu);
+        builder.HasMany(menu => menu.Submenus)
+            .WithOne(submenu => submenu.Menu);
 
         builder.ToTable(nameof(IdentityContext.Menus));
 

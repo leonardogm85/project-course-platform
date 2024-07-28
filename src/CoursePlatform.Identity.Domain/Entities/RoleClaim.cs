@@ -8,8 +8,8 @@ namespace CoursePlatform.Identity.Domain.Entities;
 public class RoleClaim : Entity
 {
     public Guid RoleId { get; }
-    public MenuItem ClaimType { get; } = null!;
-    public ItemAccess ClaimValue { get; } = null!;
+    public Submenu Submenu { get; } = null!;
+    public Access Access { get; } = null!;
     public DateTimeOffset CreatedAt { get; }
     public Guid CreatedBy { get; }
 
@@ -19,16 +19,16 @@ public class RoleClaim : Entity
     {
     }
 
-    public RoleClaim(Guid roleId, MenuItem claimType, ItemAccess claimValue, Guid createdBy)
+    public RoleClaim(Guid roleId, Submenu submenu, Access access, Guid createdBy)
     {
         RoleId = roleId;
-        ClaimType = claimType;
-        ClaimValue = claimValue;
+        Submenu = submenu;
+        Access = access;
 
         CreatedBy = createdBy;
 
         CreatedAt = DateTimeOffset.UtcNow;
     }
 
-    public Claim ToClaim() => new(ClaimType.Id.ToString(), ClaimValue.Id.ToString());
+    public Claim ToClaim() => new(Submenu.Id.ToString(), Access.Id.ToString());
 }

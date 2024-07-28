@@ -6,13 +6,13 @@ namespace CoursePlatform.Identity.Domain.ValueTypes;
 
 public class Menu : IValueType
 {
-    private readonly List<MenuItem> _menuItems = [];
+    private readonly List<Submenu> _submenus = [];
 
     public int Id { get; }
     public string Name { get; } = null!;
     public int Order { get; }
 
-    public IReadOnlyCollection<MenuItem> MenuItems => _menuItems.AsReadOnly();
+    public IReadOnlyCollection<Submenu> Submenus => _submenus.AsReadOnly();
 
     protected Menu()
     {

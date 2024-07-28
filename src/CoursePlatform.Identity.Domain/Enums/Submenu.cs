@@ -3,7 +3,7 @@ using CoursePlatform.Identity.Domain.Constants;
 
 namespace CoursePlatform.Identity.Domain.Enums;
 
-public enum MenuItem
+public enum Submenu
 {
     [Name("Users")]
     [Order(1)]

@@ -23,8 +23,8 @@ public class IdentityContext : DbContext, IUnitOfWork
     public DbSet<UserRole> UserRoles { get; } = null!;
     public DbSet<UserToken> UserTokens { get; } = null!;
     public DbSet<Menu> Menus { get; } = null!;
-    public DbSet<MenuItem> MenuItems { get; } = null!;
-    public DbSet<ItemAccess> ItemAccesses { get; } = null!;
+    public DbSet<Submenu> Submenus { get; } = null!;
+    public DbSet<Access> Accesses { get; } = null!;
 
     public IdentityContext(DbContextOptions<IdentityContext> options, PersonalDataConverter personalDataConverter, IMediatorHandler mediatorHandler) : base(options)
     {
@@ -42,8 +42,8 @@ public class IdentityContext : DbContext, IUnitOfWork
         modelBuilder.ApplyConfiguration(new RoleMapping());
         modelBuilder.ApplyConfiguration(new RoleClaimMapping());
         modelBuilder.ApplyConfiguration(new MenuMapping());
-        modelBuilder.ApplyConfiguration(new MenuItemMapping());
-        modelBuilder.ApplyConfiguration(new ItemAccessMapping());
+        modelBuilder.ApplyConfiguration(new SubmenuMapping());
+        modelBuilder.ApplyConfiguration(new AccessMapping());
 
         base.OnModelCreating(modelBuilder);
     }

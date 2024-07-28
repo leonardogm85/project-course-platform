@@ -18,17 +18,19 @@ public class UserClaimMapping : IEntityTypeConfiguration<UserClaim>
             .HasForeignKey(claim => claim.UserId)
             .IsRequired();
 
-        builder.Property(claim => claim.ClaimType)
-            .HasConversion<MenuItemConverter>();
+        builder.Property(claim => claim.Submenu)
+            .HasColumnName("SubmenuId")
+            .HasConversion<SubmenuConverter>();
 
-        builder.HasOne(claim => claim.ClaimType)
+        builder.HasOne(claim => claim.Submenu)
             .WithMany()
             .IsRequired();
 
-        builder.Property(claim => claim.ClaimValue)
-            .HasConversion<ItemAccessConverter>();
+        builder.Property(claim => claim.Access)
+            .HasColumnName("AccessId")
+            .HasConversion<AccessConverter>();
 
-        builder.HasOne(claim => claim.ClaimValue)
+        builder.HasOne(claim => claim.Access)
             .WithMany()
             .IsRequired();
 

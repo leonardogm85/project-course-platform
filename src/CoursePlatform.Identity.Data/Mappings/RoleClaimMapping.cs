@@ -18,19 +18,21 @@ public class RoleClaimMapping : IEntityTypeConfiguration<RoleClaim>
             .HasForeignKey(claim => claim.RoleId)
             .IsRequired();
 
-        builder.HasOne(claim => claim.ClaimType)
+        builder.Property(claim => claim.Submenu)
+            .HasColumnName("SubmenuId")
+            .HasConversion<SubmenuConverter>();
+
+        builder.HasOne(claim => claim.Submenu)
             .WithMany()
             .IsRequired();
 
-        builder.Property(claim => claim.ClaimType)
-            .HasConversion<MenuItemConverter>();
+        builder.Property(claim => claim.Access)
+            .HasColumnName("AccessId")
+            .HasConversion<AccessConverter>();
 
-        builder.HasOne(claim => claim.ClaimValue)
+        builder.HasOne(claim => claim.Access)
             .WithMany()
             .IsRequired();
-
-        builder.Property(claim => claim.ClaimValue)
-            .HasConversion<ItemAccessConverter>();
 
         builder.Property(claim => claim.CreatedAt)
             .IsRequired();

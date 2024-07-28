@@ -4,7 +4,7 @@ using CoursePlatform.Identity.Domain.Extensions;
 
 namespace CoursePlatform.Identity.Domain.ValueTypes;
 
-public class MenuItem : IValueType
+public class Submenu : IValueType
 {
     public int Id { get; }
     public string Name { get; } = null!;
@@ -14,34 +14,34 @@ public class MenuItem : IValueType
 
     public Menu? Menu { get; }
 
-    protected MenuItem()
+    protected Submenu()
     {
     }
 
-    public MenuItem(Enums.MenuItem menuItem)
+    public Submenu(Enums.Submenu submenu)
     {
-        Id = menuItem
+        Id = submenu
             .GetValue();
 
-        Name = menuItem
+        Name = submenu
             .GetAttribute<NameAttribute>()
             .Name;
 
-        Order = menuItem
+        Order = submenu
             .GetAttribute<OrderAttribute>()
             .Order;
 
-        Route = menuItem
+        Route = submenu
             .GetAttribute<RouteAttribute>()
             .Route;
 
-        MenuId = menuItem
+        MenuId = submenu
             .GetAttribute<MenuAttribute>()
             .Menu
             .GetValue();
     }
 
-    public static implicit operator MenuItem(Enums.MenuItem menuItem) => new(menuItem);
+    public static implicit operator Submenu(Enums.Submenu submenu) => new(submenu);
 
-    public static implicit operator Enums.MenuItem(MenuItem menuItem) => (Enums.MenuItem)menuItem.Id;
+    public static implicit operator Enums.Submenu(Submenu submenu) => (Enums.Submenu)submenu.Id;
 }
