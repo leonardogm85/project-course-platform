@@ -1,6 +1,6 @@
 ﻿using CoursePlatform.Core.Domain;
 
-namespace CoursePlatform.Identity.Domain.DataTransferObjects;
+namespace CoursePlatform.Identity.Domain.DataTransferObjects.Roles;
 
 public sealed class GetMenuByRoleId : IDataTransferObject
 {
