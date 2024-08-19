@@ -6,14 +6,14 @@ namespace CoursePlatform.Identity.Domain.Interfaces.Repositories;
 
 public interface IRoleRepository : IRepository<Role>, ITableRepository<GetRolesByFilter>, ISelectRepository
 {
-    //Task AddRoleAsync(Role role, CancellationToken cancellationToken);
-    //Task UpdateRoleAsync(Role role, CancellationToken cancellationToken);
-    //Task RemoveRoleAsync(Role role, CancellationToken cancellationToken);
+    void AddRole(Role role);
+    void UpdateRole(Role role);
+    void RemoveRole(Role role);
 
-    //Task AddClaimAsync(RoleClaim claim, CancellationToken cancellationToken);
-    //Task RemoveClaimAsync(RoleClaim claim, CancellationToken cancellationToken);
+    void AddClaim(RoleClaim claim);
+    void RemoveClaim(RoleClaim claim);
 
-    //Task<Role?> GetRoleByIdAsync(Guid roleId, CancellationToken cancellationToken);
+    Task<Role?> GetRoleByIdAsync(Guid roleId, CancellationToken cancellationToken);
 
     //Task<Role?> GetClaimsByRoleIdAsync(Guid roleId, CancellationToken cancellationToken);
 

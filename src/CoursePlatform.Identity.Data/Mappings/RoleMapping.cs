@@ -13,7 +13,7 @@ public class RoleMapping : IEntityTypeConfiguration<Role>
         builder.HasKey(role => role.Id);
 
         builder.Property(role => role.Name)
-            .HasMaxLength(250)
+            .HasMaxLength(50)
             .IsUnicode()
             .IsRequired();
 

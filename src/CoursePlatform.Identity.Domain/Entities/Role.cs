@@ -39,8 +39,14 @@ public class Role : Entity, IAggregateRoot
 
     public void SetName(string name) => Name = name;
 
-    public void EntityUpdatedAt() => UpdatedAt = DateTimeOffset.UtcNow;
-    public void EntityUpdatedBy(Guid user) => UpdatedBy = user;
+    public void EntityUpdatedBy(Guid user)
+    {
+        UpdatedBy = user;
+
+        UpdatedAt = DateTimeOffset.UtcNow;
+
+        ConcurrencyStamp = Guid.NewGuid();
+    }
 
     public void Activate() => Active = true;
     public void Deactivate() => Active = false;

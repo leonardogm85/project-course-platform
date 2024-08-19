@@ -7,14 +7,21 @@
     <UserSecretsId>9fb5bc5e-9c2d-4709-b9b4-a4b5907a722f</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <DockerfileContext>..\..</DockerfileContext>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);1591</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Asp.Versioning.Mvc" Version="8.1.0" />
+    <PackageReference Include="Asp.Versioning.Mvc.ApiExplorer" Version="8.1.0" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.21.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.7.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CoursePlatform.Catalog.Application\CoursePlatform.Catalog.Application.csproj" />
     <ProjectReference Include="..\CoursePlatform.Core\CoursePlatform.Core.csproj" />
+    <ProjectReference Include="..\CoursePlatform.Identity.Application\CoursePlatform.Identity.Application.csproj" />
   </ItemGroup>
 
 </Project>

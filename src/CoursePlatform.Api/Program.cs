@@ -1,39 +1,36 @@
+using CoursePlatform.Api.Extensions;
 using CoursePlatform.Core.Extensions;
+using CoursePlatform.Identity.Application.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
-    ??
-    throw new InvalidOperationException("Connection string not found.");
-
-var cultureName = builder.Configuration.GetValue<string>("AppSettings:CultureName")
-    ??
-    throw new InvalidOperationException("Culture name not found.");
-
 builder.Services.AddControllers();
-
-builder.Services.AddCore();
 
 builder.Services.AddDataProtection();
 
-builder.Services.AddMediatR(config =>
-{
-    config.RegisterServicesFromAssembly(typeof(Program).Assembly);
-});
+builder.Services.AddMediatR(config => config.RegisterServicesFromAssembly(typeof(Program).Assembly));
+
+builder.Services.AddVersioning();
+builder.Services.AddDocumentation(builder.Configuration);
+
+builder.Services.AddCoreContext();
+builder.Services.AddIdentityContext(builder.Configuration);
 
 var app = builder.Build();
 
-app.UseHsts();
-
-app.UseRequestLocalization(new RequestLocalizationOptions
+if (app.Environment.IsDevelopment())
 {
-    SupportedCultures = [new(cultureName)],
-    SupportedUICultures = [new(cultureName)],
-    DefaultRequestCulture = new(cultureName)
-});
+    app.UseDocumentation(builder.Configuration);
+}
+
+app.UseCulture(builder.Configuration);
+
+app.UseHsts();
+app.UseHttpsRedirection();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

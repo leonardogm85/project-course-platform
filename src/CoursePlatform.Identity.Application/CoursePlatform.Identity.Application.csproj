@@ -12,4 +12,9 @@
     <ProjectReference Include="..\CoursePlatform.Identity.Domain\CoursePlatform.Identity.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Commands\Users\" />
+    <Folder Include="Queries\Users\" />
+  </ItemGroup>
+
 </Project>

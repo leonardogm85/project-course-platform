@@ -1,8 +1,10 @@
 ﻿using CoursePlatform.Core.Data;
 using CoursePlatform.Core.Mediator.Interfaces;
+using CoursePlatform.Core.Messages.DomainNotifications;
 using CoursePlatform.Identity.Data.Converters;
 using CoursePlatform.Identity.Data.Extensions;
 using CoursePlatform.Identity.Data.Mappings;
+using CoursePlatform.Identity.Domain.Constants;
 using CoursePlatform.Identity.Domain.Entities;
 using CoursePlatform.Identity.Domain.ValueTypes;
 
@@ -50,15 +52,40 @@ public class IdentityContext : DbContext, IUnitOfWork
 
     public async Task<bool> CommitAsync(CancellationToken cancellationToken)
     {
-        cancellationToken.ThrowIfCancellationRequested();
-
-        var entitiesSaved = await SaveChangesAsync(cancellationToken) > 0;
-
-        if (entitiesSaved)
+        try
         {
-            await _mediatorHandler.PublishEventsAsync(this, cancellationToken);
+            cancellationToken.ThrowIfCancellationRequested();
+
+            var entitiesSaved = await SaveChangesAsync(cancellationToken) > 0;
+
+            if (entitiesSaved)
+            {
+                await _mediatorHandler.PublishEventsAsync(this, cancellationToken);
+            }
+
+            return entitiesSaved;
+        }
+        catch (DbUpdateConcurrencyException)
+        {
+            var notification = new DomainNotification(
+                nameof(IdentityContext),
+                Messages.DatabaseConcurrencyError);
+
+            await _mediatorHandler.PublishDomainNotificationAsync(
+                notification,
+                cancellationToken);
+        }
+        catch (DbUpdateException)
+        {
+            var notification = new DomainNotification(
+                nameof(IdentityContext),
+                Messages.DatabaseUpdateError);
+
+            await _mediatorHandler.PublishDomainNotificationAsync(
+                notification,
+                cancellationToken);
         }
 
-        return entitiesSaved;
+        return false;
     }
 }

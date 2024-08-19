@@ -1,8 +1,10 @@
-﻿using MediatR;
+﻿using CoursePlatform.Core.Messages.DomainNotifications.Interfaces;
+
+using MediatR;
 
 namespace CoursePlatform.Core.Messages.DomainNotifications.Handlers;
 
-public sealed class DomainNotificationHandler : INotificationHandler<DomainNotification>, IDisposable
+public sealed class DomainNotificationHandler : INotificationHandler<DomainNotification>, IDomainNotificationQuery
 {
     private readonly List<DomainNotification> _notifications = [];
 
