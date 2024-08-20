@@ -4,6 +4,7 @@ using Asp.Versioning.ApiExplorer;
 
 using CoursePlatform.Api.Settings;
 
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 
@@ -21,6 +22,28 @@ public static class DocumentationExtensions
 
         services.AddSwaggerGen(options =>
         {
+            var securityScheme = new OpenApiSecurityScheme
+            {
+                Name = "Authorization",
+                BearerFormat = "JWT",
+                Description = @"Authorization header using the Bearer scheme (JWT). Example: `Authorization: Bearer {token}`",
+                Scheme = JwtBearerDefaults.AuthenticationScheme,
+                In = ParameterLocation.Header,
+                Type = SecuritySchemeType.ApiKey,
+                Reference = new()
+                {
+                    Id = JwtBearerDefaults.AuthenticationScheme,
+                    Type = ReferenceType.SecurityScheme
+                }
+            };
+
+            options.AddSecurityDefinition(JwtBearerDefaults.AuthenticationScheme, securityScheme);
+
+            options.AddSecurityRequirement(new()
+            {
+                { securityScheme, [] }
+            });
+
             var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
             var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
 
