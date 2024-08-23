@@ -31,7 +31,7 @@ public class RolesController : BaseController
     /// <returns>Returns the role</returns>
     [HttpGet("get-role/{id:guid}")]
     [ProducesResponseType<GetRoleById>(StatusCodes.Status200OK)]
-    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType<ProblemDetails>(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> GetRoleByIdAsync([FromRoute] Guid id, CancellationToken cancellationToken)
     {
         throw new NotImplementedException();

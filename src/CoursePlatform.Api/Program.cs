@@ -1,4 +1,5 @@
 using CoursePlatform.Api.Extensions;
+using CoursePlatform.Api.Handlers;
 using CoursePlatform.Core.Extensions;
 using CoursePlatform.Identity.Application.Extensions;
 
@@ -7,6 +8,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 
 builder.Services.AddDataProtection();
+
+builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
+builder.Services.AddProblemDetails();
 
 builder.Services.AddMediatR(config => config.RegisterServicesFromAssembly(typeof(Program).Assembly));
 
@@ -32,6 +36,9 @@ app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();
+
+app.UseStatusCodePages();
+app.UseExceptionHandler();
 
 app.MapControllers();
 
