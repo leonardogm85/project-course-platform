@@ -12,9 +12,9 @@ using Swashbuckle.AspNetCore.SwaggerGen;
 
 namespace CoursePlatform.Api.Extensions;
 
-public static class DocumentationExtensions
+public static class SwaggerExtensions
 {
-    public static IServiceCollection AddDocumentation(this IServiceCollection services, IConfiguration configuration)
+    public static IServiceCollection AddCustomSwagger(this IServiceCollection services, IConfiguration configuration)
     {
         services.AddTransient<IConfigureOptions<SwaggerGenOptions>, ConfigureSwaggerOptions>();
 
@@ -53,7 +53,7 @@ public static class DocumentationExtensions
         return services;
     }
 
-    public static IApplicationBuilder UseDocumentation(this IApplicationBuilder app, IConfiguration configuration)
+    public static IApplicationBuilder UseCustomSwagger(this IApplicationBuilder app, IConfiguration configuration)
     {
         app.UseSwagger();
 

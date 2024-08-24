@@ -2,7 +2,7 @@
 
 public static class VersioningExtensions
 {
-    public static IServiceCollection AddVersioning(this IServiceCollection services)
+    public static IServiceCollection AddCustomVersioning(this IServiceCollection services)
     {
         services.AddApiVersioning(options =>
         {

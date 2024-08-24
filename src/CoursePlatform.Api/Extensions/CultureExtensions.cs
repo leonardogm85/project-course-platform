@@ -4,7 +4,7 @@ namespace CoursePlatform.Api.Extensions;
 
 public static class CultureExtensions
 {
-    public static IApplicationBuilder UseCulture(this IApplicationBuilder app, IConfiguration configuration)
+    public static IApplicationBuilder UseCustomCulture(this IApplicationBuilder app, IConfiguration configuration)
     {
         var cultureSettings = configuration.GetSection(nameof(CultureSettings)).Get<CultureSettings>()
             ??

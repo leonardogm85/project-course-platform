@@ -12,12 +12,14 @@ namespace CoursePlatform.Core.Extensions;
 
 public static class ApplicationExtensions
 {
-    public static void AddCoreContext(this IServiceCollection services)
+    public static IServiceCollection AddCoreContext(this IServiceCollection services)
     {
         services.AddScoped<IMediatorHandler, MediatorHandler>();
 
         services.AddScoped<INotificationHandler<DomainNotification>, DomainNotificationHandler>();
 
         services.AddScoped<IDomainNotificationQuery, DomainNotificationHandler>();
+
+        return services;
     }
 }

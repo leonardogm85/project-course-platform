@@ -2,9 +2,27 @@
 
 using Microsoft.AspNetCore.Diagnostics;
 
-namespace CoursePlatform.Api.Handlers
+namespace CoursePlatform.Api.Extensions;
+
+public static class ExceptionHandlerExtensions
 {
-    public class GlobalExceptionHandler : IExceptionHandler
+    public static IServiceCollection AddCustomExceptionHandler(this IServiceCollection services)
+    {
+        services.AddExceptionHandler<GlobalExceptionHandler>();
+        services.AddProblemDetails();
+
+        return services;
+    }
+
+    public static IApplicationBuilder UseCustomExceptionHandler(this IApplicationBuilder app)
+    {
+        app.UseStatusCodePages();
+        app.UseExceptionHandler();
+
+        return app;
+    }
+
+    private class GlobalExceptionHandler : IExceptionHandler
     {
         private readonly IProblemDetailsService _problemDetailsService;
         private readonly ILogger<GlobalExceptionHandler> _logger;
@@ -36,7 +54,7 @@ namespace CoursePlatform.Api.Handlers
                 {
                     Extensions = new Dictionary<string, object?>
                     {
-                        { "traceId", traceId }
+                        { nameof(traceId), traceId }
                     }
                 },
                 Exception = exception

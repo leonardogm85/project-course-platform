@@ -16,7 +16,7 @@ namespace CoursePlatform.Identity.Application.Extensions;
 
 public static class ApplicationExtensions
 {
-    public static void AddIdentityContext(this IServiceCollection services, IConfiguration configuration)
+    public static IServiceCollection AddIdentityContext(this IServiceCollection services, IConfiguration configuration)
     {
         var connectionString = configuration.GetConnectionString("DefaultConnection")
             ??
@@ -35,7 +35,9 @@ public static class ApplicationExtensions
 
         services.AddDbContext<IdentityContext>(options =>
         {
-            options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
+            options.UseSqlServer(connectionString);
         });
+
+        return services;
     }
 }
