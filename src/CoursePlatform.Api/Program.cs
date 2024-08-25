@@ -4,6 +4,8 @@ using CoursePlatform.Identity.Application.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Host.ConfigureCustomSerilog();
+
 builder.Services.AddControllers();
 
 builder.Services.AddDataProtection();
@@ -24,6 +26,7 @@ if (app.Environment.IsDevelopment())
     app.UseCustomSwagger(builder.Configuration);
 }
 
+app.UseCustomSerilog();
 app.UseCustomExceptionHandler();
 app.UseCustomCulture(builder.Configuration);
 
