@@ -43,7 +43,7 @@ public static class ExceptionHandlerExtensions
 
             _logger.LogError(
                 exception,
-                "An error occurred while processing the request on the machine {MachineName}. TraceId: {TraceId}",
+                "An error occurred while processing the request on the machine {@MachineName}. TraceId: {@TraceId}",
                 machineName,
                 traceId);
 
