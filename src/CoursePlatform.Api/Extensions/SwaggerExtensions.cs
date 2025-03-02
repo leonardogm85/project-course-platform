@@ -26,7 +26,7 @@ public static class SwaggerExtensions
             {
                 Name = "Authorization",
                 BearerFormat = "JWT",
-                Description = @"Authorization header using the Bearer scheme (JWT). Example: `Authorization: Bearer {token}`",
+                Description = "Authorization header using the Bearer scheme (JWT). Example: `Authorization: Bearer {token}`",
                 Scheme = JwtBearerDefaults.AuthenticationScheme,
                 In = ParameterLocation.Header,
                 Type = SecuritySchemeType.ApiKey,
